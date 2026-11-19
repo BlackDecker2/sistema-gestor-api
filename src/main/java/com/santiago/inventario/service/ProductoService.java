@@ -2,7 +2,9 @@ package com.santiago.inventario.service;
 
 import com.santiago.inventario.model.Producto;
 import com.santiago.inventario.repository.ProductoRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -25,7 +27,8 @@ public class ProductoService {
 
     public Producto buscarPorId(Long id) {
         return productoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException(
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
                         "No se encontro el producto con ID: " + id
                 ));
     }
