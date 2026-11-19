@@ -1,0 +1,12 @@
+target/
+.idea/
+.vscode/
+.settings/
+.project
+.classpath
+*.class
+*.log
+.env
+application-local.properties
+.DS_Store
+Thumbs.db
